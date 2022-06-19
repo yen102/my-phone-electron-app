@@ -1,0 +1,17 @@
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &__qr-code {
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10%;
+    }
+
+    &__guide-text {
+        font-size: 24px;
+    }   
+}

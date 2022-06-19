@@ -1,20 +1,28 @@
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Welcome from './screens/Welcome';
-import Login from './screens/Login';
-
+import DisplayQR from './screens/DisplayQR';
+import AppHeader from './components/AppHeader';
+import TaskBar from './components/TaskBar';
+import './styles/App.scss';
 
 function App() {
-
+  const connect = () => {
+    
+  }
   return (
     <div className='App'>
-      <h1>Hello</h1>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Welcome/>}/>
-          <Route path="/login" element={<Login/>}/>
-        </Routes>
+      <div className='main'>
+        <AppHeader/>
+      
+          <Routes>
+            <Route path="/" element={<Welcome/>}/>
+            <Route path="/qr" element={<DisplayQR/>}/>
+            {/* <Route path="/home" element={}/> */}
+          </Routes>
+      </div>
       </BrowserRouter>
+
     </div>
   );
 }

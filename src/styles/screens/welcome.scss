@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.welcome-left {
+    flex: 0.35;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5%;
+    &__text {
+        font-size: 48px;
+        color: black;
+        margin-bottom: 10%;
+        align-self: center;
+    }
+
+    &__button {
+        align-self: center;
+        &__text {
+            font-size: 24px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+}
+
+.welcome-image {
+    flex: 0.65;
+    flex-shrink: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    img {
+        border-radius: 16px;
+    }
+}
+

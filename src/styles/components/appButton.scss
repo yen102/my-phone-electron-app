@@ -1,0 +1,19 @@
+.button {
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    &--important {
+        background-color: $color_button_important;
+    }
+    &:hover {
+        background-color: $color_button_important_hover;
+    }
+    &:active {
+        background-color: $color_button_important_active;
+    }
+}
