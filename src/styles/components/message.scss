@@ -1,0 +1,29 @@
+.message {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: white;
+    border-bottom: 1px;
+    border-color: $color_shadow;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 1%;
+    &__address {
+        flex: 0.1;
+        flex-shrink: 0.15;
+    }
+    &__body {
+        flex: 0.7;
+    }
+    &__time {
+        flex: 0.1;
+        display: flex;
+        justify-content: end;
+    }
+    &__read {
+        flex: 0.05;
+        display: flex;
+        justify-content: end;
+        color: green;
+    }
+}

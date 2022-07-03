@@ -44,8 +44,8 @@ function createWindow() {
 
       clientSocket.on('data', (data) => {
         console.log('---------data' + data)
-        const verifyRes = verify(data);
-        ipcMain.webContents.send('verifyRes', verifyRes);
+        // const verifyRes = verify(data);
+        // ipcMain.webContents.send('verifyRes', verifyRes);
       })
     
       clientSocket.on('error', (error) => {
@@ -58,12 +58,12 @@ function createWindow() {
     }
     
   });
-  socketServer.listen(6000, '192.168.0.118', () => {
+  socketServer.listen(6000, '192.168.1.172', () => {
       console.log('----------Listening...')
   })
 
   socketServer.on('connection', (socket) => {
-      console.log('-----client', socket)
+      
   })
 
 
