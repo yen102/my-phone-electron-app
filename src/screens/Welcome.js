@@ -13,7 +13,7 @@ export default function Welcome() {
                     </div>
                     <div className="welcome-left__button">
                         <AppButton type="important" onClick={() => {
-                            navigate("home", {replace: true})
+                            navigate("qr", {replace: true})
                         }}>
                             <div className="welcome-left__button__text"> 
                                 Connect

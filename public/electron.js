@@ -39,11 +39,42 @@ function createWindow() {
       socket.write('already connected to other phone!\n');
       socket.destroy();
     } else {
+      let len = -1;
+      let datas = []
       clientSocket = socket
       clientSocket.write("Hello ")
-
+      
       clientSocket.on('data', (data) => {
-        console.log('---------data' + data)
+        console.log('---data len', data.length)
+        if (len == -1) {
+          len = parseInt(data.slice(0, 8).toString(), 10);
+          datas.push(data.slice(8, data.length))
+          len -= data.length
+        } else {
+          datas.push(data)
+          len -= data.length
+        }
+        if (len == 0) {
+          console.log('-------ok')
+          const buffer = Buffer.concat(datas)
+          console.log('----buffer', buffer)
+          win.webContents.send('images', buffer);
+          datas = [];
+          len = -1;
+        }
+
+        // if (len != 3255) {
+        //   console.log('-----------data ', data.slice(0, 8))
+        //   datas.push(data)
+        //   len += data.length
+
+        //   if (len == 3255) {
+        //     console.log('----------data ok')
+        //     const buffer = Buffer.concat(datas)
+        //     win.webContents.send('images', buffer);
+        //   }
+        // } 
+        
         // const verifyRes = verify(data);
         // ipcMain.webContents.send('verifyRes', verifyRes);
       })
@@ -58,12 +89,12 @@ function createWindow() {
     }
     
   });
-  socketServer.listen(6000, '192.168.1.172', () => {
+  socketServer.listen(6000, '192.168.0.118', () => {
       console.log('----------Listening...')
   })
 
   socketServer.on('connection', (socket) => {
-      
+      win.webContents.send('verifyRes', true)
   })
 
 

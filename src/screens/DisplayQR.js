@@ -1,7 +1,11 @@
 import QRCode from "react-qr-code";
 import { useEffect, useState } from "react";
 import { verifyAndroid } from "../utils/verifyAndroid";
+import { useNavigate } from "react-router-dom"
+
 export default function DisplayQR() {
+    const navigate = useNavigate();
+    const [authenticated, setAuthenticated] = useState(false)
     const [myQR, setMyQR] = useState('')
     // ipcRenderer.on('myIP', (event, arg) => {
     //     console.log('---------arg', arg)
@@ -13,7 +17,7 @@ export default function DisplayQR() {
     window.api.receive('verifyRes', (data) => {
         console.log('verifyRes', data);
         if (data == true) {
-            
+            navigate("../home", {replace: true})
         }
     })
 
